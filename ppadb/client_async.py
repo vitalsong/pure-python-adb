@@ -19,3 +19,7 @@ class ClientAsync(HostAsync):
                 return device
 
         return None
+    
+    async def remote_connect(self, host: str, port: int):
+        cmd = "host:connect:%s:%d" % (host, port)
+        await self._execute_cmd(cmd)
